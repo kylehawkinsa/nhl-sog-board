@@ -1,4 +1,4 @@
-const C="sog-2026-10-12-002632",SHELL=["./","index.html","manifest.json","icons/icon.svg"];
+const C="sog-2026-10-13-102055",SHELL=["./","index.html","manifest.json","icons/icon.svg"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL.concat("data.json"))));self.skipWaiting()});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim()});
 self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(e.request.method!=="GET"||u.origin!==location.origin)return;
